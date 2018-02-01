@@ -1,0 +1,23 @@
+version: '2'
+services:
+  factorio:
+   container_name: factorio
+   environment:
+      - PORT=34197
+      - RCON_PORT=27015
+   restart: always
+   build:
+      context: .
+      args:
+        - VERSION=0.16.20
+      dockerfile: ./Dockerfile
+   image: factorio:$VERSION
+   mem_limit: 500MB
+   ports:
+      - 34197:34197/udp
+  expose:
+      - 27015:27015/tcp
+   entrypoint:
+     - /docker-entrypoint.sh
+   volumes:
+    - ./Docked:/factorio
