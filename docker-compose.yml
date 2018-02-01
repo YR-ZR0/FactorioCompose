@@ -16,7 +16,7 @@ services:
    ports:
       - 34197:34197/udp
   expose:
-      - 27015:27015/tcp
+      - 27015/tcp
    entrypoint:
      - /docker-entrypoint.sh
    volumes:
